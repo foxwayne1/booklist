@@ -2,8 +2,12 @@ import { useContext } from 'react'
 import BookShow from './BookShow'
 import BooksContext from '../context/Books'
 
+function useBooksContext() {
+  return useContext(BooksContext)
+}
+
 const BookList = () => {
-  const { books } = useContext(BooksContext)
+  const { books } = useBooksContext()
 
   const renderBooks = books.map(book => {
     return <BookShow key={book.id} book={book} />
